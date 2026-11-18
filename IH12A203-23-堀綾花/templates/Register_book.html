@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おすすめ本を登録する</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body id="registerbody">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>おすすめ本を登録する</h1>
+
+        <!-- enctypeを使うことでファイルアップロードが可能になる -->
+        <form method="POST" action="/register_book" enctype="multipart/form-data">
+
+            <div>
+                <label for="title">本のタイトル</label>
+                <input type="text" id="title" name="title" required>
+            </div>
+
+            <div>
+                <label for="author">作者・著者</label>
+                <input type="text" id="author" name="author" required>
+            </div>
+
+            <div>
+                <label for="book_type">種類</label>
+                <select id="book_type" name="book_type" required>
+                    <option value="">選択してください</option>
+                    <option value="小説">小説</option>
+                    <option value="漫画">漫画</option>
+                    <option value="雑誌">雑誌</option>
+                    <option value="参考書">参考書</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="genre">ジャンル</label>
+                <input type="text" id="genre" name="genre" required>
+            </div>
+
+            <div>
+                <label for="summary">あらすじ・概要</label>
+                <textarea id="summary" name="summary" rows="6" required></textarea>
+            </div>
+
+            <div>
+                <label for="recommendation">おすすめポイント</label>
+                <textarea id="recommendation" name="recommendation" rows="6" required></textarea>
+            </div>
+
+            <div>
+                <label for="cover_image">表紙画像</label>
+                <input type="file" id="cover_image" name="cover_image">
+            </div>
+
+            <button type="submit" class="btn">登録する</button>
+
+            <p class="look">
+                <a href="{{ url_for('recommend') }}">
+                    今まで登録した本を見る
+                </a>
+            </p>
+
+        </form>
+    </main>
+</body>
+</html>

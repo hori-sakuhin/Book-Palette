@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>トップページ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body id="topbody">
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+    <main>
+
+        <div class="heroarea">
+            <div class="hero-text">
+                <h1>あなたの知らない一冊に<br>出会おう</h1>
+
+                <p>
+                    みんなのおすすめから<br>
+                    次に読みたい本を見つけよう
+                </p>
+
+                <a href="/search" class="hero-button">本を探してみる</a>
+            </div>
+        </div>
+
+        <hr>
+
+        <section>
+            <h2>最近おすすめされた本</h2>
+
+            {% if books %}
+
+                <div class="book-list">
+
+                    {% for book in books %}
+
+                        <article class="book-card">
+                
+                            {% if book.cover_image %}
+                                <img
+                                    src="{{ url_for('static', filename=book.cover_image) }}"
+                                    alt="{{ book.title }}の表紙"
+                                    class="cover-image">
+                            {% endif %}
+
+
+                            <h3>{{ book.title }}</h3>
+
+                            <div class="book-info">
+                                <p>著者：{{ book.author }}</p>
+                                <p>ジャンル：{{ book.genre }}</p>
+                                <p>種類：{{ book.book_type }}</p>
+                            </div>
+
+                            <a class="btn"
+                            href="{{ url_for('book_detail', book_id=book.book_id) }}">
+                                詳細を見る
+                            </a>
+
+                        </article>
+
+                    {% endfor %}
+
+                </div>
+            {% else %}
+
+                <p>まだおすすめされた本はありません。</p>
+
+            {% endif %}
+
+        </section>
+    </main>
+
+
+</body>
+</html>

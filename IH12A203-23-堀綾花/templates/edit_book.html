@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>登録内容を編集</title>
+
+    <link rel="stylesheet"href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body id="editbody">
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+
+    <main class="form-container">
+
+        <h1>登録内容を編集</h1>
+
+        <form method="POST"
+              enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="title">本のタイトル</label>
+                <input type="text"
+                       id="title"
+                       name="title"
+                       value="{{ book.title }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="author">作者・著者</label>
+                <input type="text"
+                       id="author"
+                       name="author"
+                       value="{{ book.author }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="book_type">種類</label>
+
+                <select id="book_type"
+                        name="book_type"
+                        required>
+
+                    <option value="小説"
+                        {% if book.book_type == "小説" %}selected{% endif %}>
+                        小説
+                    </option>
+
+                    <option value="漫画"
+                        {% if book.book_type == "漫画" %}selected{% endif %}>
+                        漫画
+                    </option>
+
+                    <option value="雑誌"
+                        {% if book.book_type == "雑誌" %}selected{% endif %}>
+                        雑誌
+                    </option>
+
+                    <option value="参考書"
+                        {% if book.book_type == "参考書" %}selected{% endif %}>
+                        参考書
+                    </option>
+
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="genre">ジャンル</label>
+                <input type="text"
+                       id="genre"
+                       name="genre"
+                       value="{{ book.genre }}"
+                       required>
+            </div>
+
+            <div class="form-group">
+                <label for="summary">あらすじ・概要</label>
+                <textarea id="summary"
+                          name="summary"
+                          rows="6"
+                          required>{{ book.summary }}</textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="recommendation">おすすめポイント</label>
+                <textarea id="recommendation"
+                          name="recommendation"
+                          rows="6"
+                          required>{{ book.recommendation }}</textarea>
+            </div>
+
+            <div class="form-group">
+
+                <label for="cover_image">表紙画像</label>
+
+                {% if book.cover_image %}
+                    <p>現在の画像：</p>
+
+                    <img src="{{ url_for('static', filename=book.cover_image) }}"
+                         alt="{{ book.title }}の表紙"
+                         class="cover-image">
+                {% endif %}
+
+                <input type="file"
+                       id="cover_image"
+                       name="cover_image">
+            </div>
+
+            <button class="btn" type="submit">
+                変更を保存
+            </button>
+
+        </form>
+
+        <div class="form-link">
+            <a href="{{ url_for('recommend') }}">
+                おすすめした本一覧に戻る
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,612 @@
+@charset "utf-8";
+
+/* =========================
+   全体
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #F4F0E8;
+    color: #3E3934;
+
+}
+
+
+/* =========================
+   ナビゲーション
+========================= */
+
+nav {
+    background-color: #405A4A;
+    border-bottom: 1px solid #ddd;
+    padding: 0 30px;
+    text-align: center;
+
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav a:hover {
+    opacity: 0.6;
+}
+
+
+/* =========================
+   メイン
+========================= */
+
+main {
+    width: min(1000px, 90%);
+    margin: 50px auto;
+}
+
+h1 {
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 3px rgba(242, 240, 240, 0.678);
+}
+
+
+h2 {
+    margin-top: 40px;
+    text-shadow: 1px 1px 3px rgba(242, 240, 240, 0.678);}
+
+
+
+/* index */
+
+.indexbody {
+    background-image: url("images/samune.png");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hairu{
+    padding: 5px 20px;
+    font-size: 2rem;
+    background-color: rgba(250, 247, 238, 0.85);
+    border-radius: 50px;
+
+}
+
+/* login・signup */
+#loginbody{
+    background-image: url("images/loginhaikei.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+
+/* top */
+#topbody{
+    background-image: url("images/tophaikei.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+#topbody::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+}
+
+.heroarea {
+    height: 550px;
+    background-image: linear-gradient(rgba(255,255,255,0.55), rgba(255,255,255,0.55));
+    background-size: cover;
+    background-position: center;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-text {
+    text-align: center;
+}
+
+.hero-text h1 {
+    font-size: 58px;
+    line-height: 1.4;
+    margin: 0 0 35px;
+    color: #29251f;
+}
+
+.hero-text p {
+    font-size: 25px;
+    line-height: 1.8;
+    margin: 0 0 35px;
+    color: #403b34;
+}
+
+.hero-button {
+    display: inline-block;
+    padding: 14px 40px;
+    background-color: #405d4f;
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.hero-button:hover {
+    opacity: 0.8;
+}
+
+
+/* search */
+#searchbody{
+    background-image: url("images/searchhaikei.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+}
+
+.keyword{
+    width: 700px;
+}
+
+/* register  recommend*/
+#registerbody{
+    background-image: url("images/registerhaikai.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+
+}
+
+.look{
+    display: inline-block;
+    padding: 10px 20px;
+
+    background-color: #77a187;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    text-decoration: none;
+    cursor: pointer;
+    
+}
+
+/* mypage */
+
+#mypagebody,#editbody{
+    background-image: url("images/mypagehaikai.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  
+}
+
+.mypage {
+    width: 80%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+
+/* ページタイトル */
+
+
+/* 利用者情報カード */
+.user-card {
+    background-color: rgba(255, 253, 248, 0.9);
+    border-radius: 15px;
+    padding: 35px 40px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+
+.user-card h2 {
+    color: #405a4a;
+    font-size: 26px;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+
+/* ユーザー情報 */
+.user-info {
+    display: flex;
+    gap: 80px;
+}
+
+
+.user-info > div {
+    flex: 1;
+}
+
+
+.user-info span {
+    display: block;
+    font-size: 14px;
+    color: #756e66;
+    margin-bottom: 8px;
+}
+
+
+.user-info p {
+    font-size: 19px;
+    color: #3e3934;
+    margin: 0;
+}
+
+
+/* メニュー */
+.mypage-menu {
+    display: flex;
+    gap: 25px;
+    margin-top: 35px;
+}
+
+
+/* メニューカード */
+.menu-card {
+    flex: 1;
+    background-color: rgba(255, 253, 248, 0.92);
+    border-radius: 15px;
+    padding: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #3e3934;
+
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s;
+}
+
+
+.menu-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 7px 16px rgba(0, 0, 0, 0.15);
+}
+
+
+
+
+.menu-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+    color: #405a4a;
+}
+
+
+.menu-card p {
+    margin: 0;
+    color: #756e66;
+    font-size: 14px;
+}
+
+
+/* ログアウト */
+.logout-area {
+    text-align: center;
+    margin-top: 35px;
+}
+
+
+.logout-btn {
+    color: #756e66;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+
+.logout-btn:hover {
+    text-decoration: underline;
+}
+
+
+/* detail */
+#detailbody{
+    background-image: url("images/itipage.jpg");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  
+}
+
+
+/* 本のカード*/
+
+.book-card {
+    background-color: rgba(250, 247, 238, 0.85);
+    border: 1px solid #e2e2e2;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 20px 0;
+    align-items: center;
+    text-align: center;
+
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.book-card h3 {
+    margin-top: 0;
+}
+
+.book-info {
+    color: #666;
+    line-height: 1.8;
+    flex: 1;
+
+}
+
+
+/* =========================
+   ボタン
+========================= */
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+
+    background-color: #405A4A;
+    color: white;
+
+    border: none;
+    border-radius: 7px;
+
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+
+
+/* =========================
+   フォーム
+========================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 10px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+
+/* フォーム背景 */
+
+.form-container {
+    width: min(500px, 90%);
+    margin: 60px auto;
+    background-color: rgba(250, 247, 238, 0.85);
+    padding: 40px 50px;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(60, 45, 30, 0.18);
+}
+
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 12px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    font-size: 16px;
+}
+
+.form-container .btn {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.form-link {
+    text-align: center;
+    margin-top: 25px;
+}
+.form-container .btn {
+    width: 100%;
+    margin-top: 10px;
+    background-color: #405F50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 13px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+/* =========================
+   本の一覧
+========================= */
+
+.book-list {
+    display: grid;
+    /* 一行に三列 */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.book-info p {
+    margin: 7px 0;
+
+
+}
+
+
+.cover-image {
+    width: 200px;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.book-actions {
+    display: flex;
+    margin-top: 5px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+
+/* 本の詳細ページ */
+.book-detail {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* ページタイトル */
+.book-detail > h1 {
+    font-size: 40px;
+    color: #3e3934;
+    margin-bottom: 40px;
+    text-shadow: 1px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+
+/* 本の情報全体 */
+
+
+/* 表紙＋基本情報 */
+.book-main-info {
+    display: flex;
+    gap: 60px;
+    align-items: center;
+}
+
+
+/* 表紙 */
+.datail-cover-image {
+    width: 280px;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+}
+
+
+/* 右側の基本情報 */
+
+
+/* 本のタイトル */
+.book-info h2 {
+    font-size: 36px;
+    color: #3e3934;
+    margin-bottom: 40px;
+}
+
+
+/* 作者・ジャンル・種類 */
+.info-item {
+    margin-bottom: 25px;
+}
+
+.info-item span {
+    display: block;
+    font-size: 14px;
+    color: #756e66;
+    margin-bottom: 5px;
+}
+
+.info-item p {
+    font-size: 20px;
+    color: #3e3934;
+    margin: 0;
+}
+
+
+/* あらすじ・おすすめ */
+.book-text {
+    margin-top: 50px;
+}
+
+.book-text h3 {
+    font-size: 24px;
+    color: #405a4a;
+    border-left: 5px solid #405a4a;
+    padding-left: 12px;
+    margin-bottom: 15px;
+}
+
+.book-text p {
+    font-size: 17px;
+    line-height: 1.9;
+    color: #3e3934;
+}
+
+
+/* 戻るリンク */
+.back-link {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-link a {
+    color: #405a4a;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link a:hover {
+    text-decoration: underline;
+}

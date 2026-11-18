@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>おすすめした本</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body id="registerbody">
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+        <h1>おすすめした本</h1>
+
+        {% if books %}
+
+            <div class="book-list">
+
+                {% for book in books %}
+
+                    <article class="book-card">
+
+                        <h3>{{ book.title }}</h3>
+
+                        <div class="book-info">
+                            <p>著者：{{ book.author }}</p>
+                            <p>ジャンル：{{ book.genre }}</p>
+                            <p>種類：{{ book.book_type }}</p>
+                        </div>
+
+                        <a class="btn"
+                        href="{{ url_for('book_detail', book_id=book.book_id) }}">
+                            詳細を見る
+                        </a>
+
+                        <div class="book-actions">
+
+                            <a class="btn" id="editbtn"
+                            href="{{ url_for('edit_book', book_id=book.book_id) }}">
+                                登録内容を編集
+                            </a>
+
+                            <form method="POST"
+                                action="{{ url_for('delete_book', book_id=book.book_id) }}"
+                                onsubmit="return confirm('この本を削除しますか？');">
+
+                                <button class="btn" id="deletebtn" type="submit">
+                                    削除
+                                </button>
+
+                            </form>
+
+                        </div>
+
+
+                    </article>
+
+                {% endfor %}
+
+            </div>
+        {% else %}
+
+            <p>まだおすすめした本はありません。</p>
+
+        {% endif %}
+
+    </main>
+
+</body>
+</html>

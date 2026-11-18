@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>マイページ</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body id="mypagebody">
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+
+    <main class="mypage">
+
+        <h1>マイページ</h1>
+
+        <!-- 利用者情報 -->
+        <section class="user-card">
+
+            <h2>利用者情報</h2>
+
+            <div class="user-info">
+                <div>
+                    <span>ユーザー名</span>
+                    <p>{{ username }}</p>
+                </div>
+
+                <div>
+                    <span>メールアドレス</span>
+                    <p>{{ email }}</p>
+                </div>
+            </div>
+
+        </section>
+
+
+        <!-- メニュー -->
+        <section class="mypage-menu">
+
+            <a href="{{ url_for('recommend') }}" class="menu-card">
+                <h3>自分がおすすめした本</h3>
+                <p>登録した本を見る</p>
+            </a>
+
+            <a href="{{ url_for('register_book') }}" class="menu-card">
+                <h3>おすすめ本を登録する</h3>
+                <p>お気に入りの本を紹介する</p>
+            </a>
+
+        </section>
+
+
+        <!-- ログアウト -->
+        <div class="logout-area">
+            <a href="{{ url_for('logout') }}" class="logout-btn">
+                ログアウト
+            </a>
+        </div>
+
+    </main>
+
+</body>
+</html>

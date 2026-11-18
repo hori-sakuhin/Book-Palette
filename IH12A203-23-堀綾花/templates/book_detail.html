@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本の詳細</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+</head>
+
+<body id="detailbody">
+
+    <nav>
+        <ul>
+            <li><a href="{{ url_for('top') }}">ホーム画面</a></li>
+            <li><a href="{{ url_for('search') }}">図書検索</a></li>
+            <li><a href="{{ url_for('register_book') }}">おすすめ本を登録する</a></li>
+            <li><a href="{{ url_for('other_recommend') }}">ほかのユーザーがおすすめした本</a></li>
+            <li><a href="{{ url_for('mypage') }}">マイページ</a></li>
+        </ul>
+    </nav>
+
+    <main class="book-detail">
+
+        <h1>本の詳細</h1>
+
+        <section class="book-detail-card">
+
+            <div class="book-main-info">
+
+                {% if book.cover_image %}
+                    <img
+                        src="{{ url_for('static', filename=book.cover_image) }}"
+                        alt="{{ book.title }}の表紙"
+                        class="datail-cover-image">
+                {% endif %}
+
+                <div class="book-info">
+
+                    <h2>{{ book.title }}</h2>
+
+                    <div class="info-item">
+                        <span>作者・著者</span>
+                        <p>{{ book.author }}</p>
+                    </div>
+
+                    <div class="info-item">
+                        <span>ジャンル</span>
+                        <p>{{ book.genre }}</p>
+                    </div>
+
+                    <div class="info-item">
+                        <span>種類</span>
+                        <p>{{ book.book_type }}</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- あらすじ -->
+            <div class="book-text">
+                <h3>あらすじ・概要</h3>
+                <p>{{ book.summary }}</p>
+            </div>
+
+
+            <!-- おすすめポイント -->
+            <div class="book-text">
+                <h3>おすすめポイント</h3>
+                <p>{{ book.recommendation }}</p>
+            </div>
+
+        </section>
+
+
+        <p class="back-link">
+            <a href="{{ url_for('search', keyword=keyword) }}">
+                図書検索に戻る
+            </a>
+        </p>
+
+    </main>
+</body>
+</html>
