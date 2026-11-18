@@ -12,8 +12,8 @@ app.secret_key = "book_app_secret_key"
 def get_db_connection():
     return mysql.connector.connect(
         host="localhost",
-        user="root",
-        password="root",
+        user="your database account",
+        password="your database password",
         database="book_app"
     )
 
